@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+            <div><input type="text" id="url" placeholder="http://localhost:8080/stream"/></div>
+            <div><button onclick="connect()">Start</button></div>
+            <div id="para" style="display: flex;flex-direction: column;gap: 2px;">
+            </div>
+        </div>
+    </center>
+    <script>
+        function connect(){
+            let url = document.getElementById('url').value
+            let para = document.getElementById('para')
+            console.log(url);
+            
+            const sse = new EventSource(url)
+            sse.onmessage = (e) => {
+                const ele = document.createElement("p")
+                ele.innerText = e.data
+                para.appendChild(ele)
+            }
+        }
+    </script>
+</body>
+</html>
