@@ -21,11 +21,16 @@
             console.log(url);
             
             const sse = new EventSource(url)
-            sse.onmessage = (e) => {
-                const ele = document.createElement("p")
+            const appendData = (e) => { 
+                let ele = document.createElement("p")
                 ele.innerText = e.data
                 para.appendChild(ele)
             }
+            sse.onmessage = appendData
+            sse.addEventListener('Login',appendData);
+            sse.addEventListener('Logout',appendData);
+            sse.addEventListener('Notify',appendData);
+            
         }
     </script>
 </body>
