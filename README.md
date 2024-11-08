@@ -2,6 +2,10 @@
 
 This is demo project presenting, the system sending events from `server` to `client` using `EventSource` Browser API
 
+## Demo
+
+[demo-sse.webm](https://github.com/user-attachments/assets/13564e26-4945-40ff-b97b-eccc5825f7dc)
+
 ## To Start the project:
 
 - clone the repo
